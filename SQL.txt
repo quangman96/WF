@@ -1,0 +1,21 @@
+create table organization (
+	id bigserial not null primary key,
+	name varchar(100) not null,
+	description varchar(50) not null
+)
+
+create table department (
+	id bigserial not null primary key,
+	name varchar(100) not null,
+	description varchar(50) not null,
+	org_id bigserial not null REFERENCES organization(id)
+	
+)
+
+create table staff (
+	id bigserial not null primary key,
+	name varchar(100) not null,
+	description varchar(50) not null,
+	dep_id bigserial not null REFERENCES department(id)
+	
+)
